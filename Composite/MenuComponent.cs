@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Composite;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Composite
 {
@@ -16,12 +19,32 @@ namespace Composite
         }
 
         public virtual void Add(MenuComponent component) { }
-
-        public virtual void Remove(MenuComponent component) { }
-
-        public virtual void Print()
+        { if (component == null)
+            {
+                throw new ArgumentNullException(nameof(component), "Блюда не существует");
+    }
+    _menuComponents.Add(component);}
+    public virtual void Remove(MenuComponent component) { }
+{
+    {
+        if (component == null)
         {
-            Console.WriteLine(name);
+            throw new ArgumentNullException(nameof(component));
         }
+        if (!_menuComponents.Contains(component))
+        {
+            throw new InvalidOperationException("Указанное блюдо не найдено в меню");
+        }
+        _menuComponents.Remove(component);
+    } 
+public virtual void Print()
+        {
+    Console.WriteLine(name);
+
+    foreach (MenuComponent component in _menuComponents)
+    {
+        component.Print();
+    }
+}
     }
 }
