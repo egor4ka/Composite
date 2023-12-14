@@ -9,8 +9,6 @@ namespace Composite
 {
     internal class Menu : MenuComponent
     {
-        private List<MenuComponent> _menuComponents = new List<MenuComponent>();
-
         public Menu(string name)
             : base(name)
         { }

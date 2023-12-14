@@ -11,7 +11,7 @@ namespace Composite
 {
     internal abstract class MenuComponent
     {
-        protected string name;
+        private string name;
         private List<MenuComponent> _menuComponents = new List<MenuComponent>();
         public MenuComponent(string name)
         {
