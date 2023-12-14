@@ -8,8 +8,6 @@ namespace Composite
 {
     internal class MenuSection : MenuComponent
     {
-        private List<MenuComponent> _menuComponents = new List<MenuComponent>();
-
         public MenuSection(string name)
             : base(name)
         { }
